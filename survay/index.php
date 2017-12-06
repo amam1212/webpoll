@@ -38,7 +38,7 @@
                     Welcome Pornpunnarai Saimoonkham
                 </ul>
                 <form class="form-inline mt-2 mt-md-0">
-                        <a class="btn btn-warning" href="summarypoll.php">logout</a>
+                        <a class="btn btn-warning" href="logout.php">logout</a>
                 </form>
             </div>
         </nav>
@@ -48,245 +48,90 @@
 
     <!-- Begin page content -->
     <main role="main" class="container">
-        <div class="mt-3">
+        <div class="mt-3" style="text-align: center">
             <br>
-            <h3 style="text-align: center">แบบสอบถาม</h3>
-            <h4 style="text-align: center">โครงการสำรวจพฤติกรรมการเดินทางของประชาชนในกลุ่มภาคเหนือตอนบน 4 จังหวัด</h4>
-            <h4 style="text-align: center">(เชียงใหม่ ลำพูน ลำปาง แม่ฮ่อนสอน)</h4><hr>
-            <p style="text-align: center">ศูนย์ความเป็นเลิศด้านการศึกษาเรื่องเมืองและนโยบายสาธารณะ มหาวิทยาลัยเชียงใหม่<br>Excellence Center for Urban Planning and Development (ECUP)</p> <hr>
+            <h3>เชียงใหม่ในมือของคุณ</h3><hr>
+            <p>ตามที่ศูนย์ความเป็นเลิศด้านการศึกษาเรื่องเมืองและนโยบายสาธารณะ มหาวิทยาลัยเชียงใหม่</p>
+            <p>ได้รับมอบหมายให้จัดทำแผนพัฒนาพื้นที่ในเขตเมืองของกลุ่มจังหวัดภาคเหนือตอนบน 1 (เชียงใหม่ ลำพูน ลำปาง แม่ฮ่องสอน)</p>
+            <p>ทั้งในด้านกายภาพ การจราจร  การอยู่อาศัย และคุณภาพชีวิตที่ดีขึ้น ควบคู่กับการดำรงไว้ซึ่งวัฒนธรรมและเอกลักษณ์ความเป็นเมืองของตนเอง</p>
+            <p>ดังนั้นความคิดเห็นของคนในพื้นที่จึงเป็นสิ่งสำคัญต่อการกำหนดแนวทางการพัฒนาเมืองเพื่อประกอบการจัดทําแผนการพัฒนาเมืองเชิงนโยบายสาธารณะ</p><hr>
         </div>
 
         <form id="contact-form" method="post" action="check_survay.php" role="form">
             <input type="hidden" name="mid" value="<?php echo $objResult["mid"];?>">
-            <div class="row">
-                <div class="col-md-12">
-                    <label for="form_areacode"><b>Area Code *</b></label>
-
-                    <select class="form-control" name="areaid" required="required" data-error="Area code is required.">
-                        <option value="">Please Select Area</option>
-                        <?php
-                        $sqlarea = "SELECT * FROM Area ORDER BY areaId ASC";
-                        $objQueryArea = mysqli_query($objCon, $sqlarea);
-                        while($objResultArea = mysqli_fetch_array($objQueryArea,MYSQLI_ASSOC))
-                        {
-                            ?>
-                            <option value="<?php echo $objResultArea["areaId"];?>">
-                                <?php echo $objResultArea["areaId"]." - ".$objResultArea["areaName"];?>
-                            </option>
-                            <?php
-                        }
-                        ?>
-                    </select>
-                </div>
-            </div>
-            <br><label><u><b>ส่วนที่ 1 ข้อมูลพื้นฐานของผู้ตอบแบบสอบถาม</b></u></label><br><br>
             <!-- name -->
             <div class="form-group row">
                 <div class="col-md-6">
-                    <label for="txtfirstname"><b>1.1 ชื่อ *</b></label>
-                    <input type="text" name="txtfirstname" class="form-control" placeholder="Please enter your firstname" required="required" data-error="Firstname is required.">
+                    <label for="txtfirstname"><b>ชื่อ <span style="color: red">*</span></b></label>
+                    <input type="text" name="txtfirstname" class="form-control" placeholder="กรุณากรอกชื่อ *" required="required" data-error="Firstname is required.">
                     <div class="help-block with-errors"></div>
                 </div>
                 <div class="col-md-6">
-                    <label for="txtlastname"><b>1.2 นามสกุล *</b></label>
-                    <input type="text" name="txtlastname" class="form-control" placeholder="Please enter your lastname" required="required" data-error="Lastname is required.">
+                    <label for="txtlastname"><b>นามสกุล <span style="color: red">*</span></b></label>
+                    <input type="text" name="txtlastname" class="form-control" placeholder="กรุณากรอกนามสกุล *" required="required" data-error="Lastname is required.">
                     <div class="help-block with-errors"></div>
                 </div>
             </div>
 
             <div class="form-group row">
                 <div class="col-md-4">
-                    <label for="txtage"><b>1.3 อายุ *</b></label>
-                    <input type="text" name="txtage" class="form-control" placeholder="Please enter your age" required="required" data-error="Age is required.">
+                    <label for="txtphone"><b>เบอร์โทร <span style="color: red">*</span></b></label>
+                    <input type="text" name="txtphone" class="form-control" placeholder="กรุณากรอกเบอร์โทร *" required="required" data-error="Age is required.">
                     <div class="help-block with-errors"></div>
                 </div>
 
-                <div class="col-md-4">
-                    <label for="txtphone"><b>1.4 เบอร์โทร *</b></label>
-                    <input type="tel" name="txtphone" class="form-control" placeholder="Please enter your telephone" minlength="10" maxlength="10" required="required" data-error="Telephone is required.">
+                <div class="col-md-8">
+                    <label for="txtemail"><b>อีเมล์ <span style="color: red">*</span></b></label>
+                    <input type="email" name="txtemail" placeholder="กรุณากรอกอีเมล์ *" class="form-control" required="required" data-error="Email is required.">
                     <div class="help-block with-errors"></div>
                 </div>
-
-                <div class="col-md-4">
-                    <p><b>1.5 เพศ *</b></p>
-                    <label for="gender" class="radio-inline">
-                        <input type="radio" name="gender" value="ชาย" required="required"> ชาย
-                    </label>
-                    <label for="gender" class="radio-inline">
-                        <input type="radio" name="gender" value="หญิง"> หญิง
-                    </label>
-                    <label for="gender" class="radio-inline">
-                        <input type="radio" name="gender" value=""> อื่นๆ <input type="text" name="gentertxt"/>
-                    </label>
-                </div>
-            </div>
-
-            <div class="form-group row">
-
-                <div class="col-md-6">
-                    <label for="txtemail"><b>1.6 อีเมล์ *</b></label>
-                    <input type="email" name="txtemail" placeholder="Please enter your email" class="form-control" required="required" data-error="Email is required.">
-                    <div class="help-block with-errors"></div>
-                </div>
-
-                <div class="col-md-6">
-                    <label for="txtmember"><b>1.7 จำนวนสมาชิกในครัวเรือน (รวมตัวท่านเอง) *</b></label>
-                    <input type="text" name="txtmember" class="form-control" placeholder="Please enter a number of member" required="required" data-error="Number of member is required.">
-                    <div class="help-block with-errors"></div>
-                </div>
-
             </div>
 
             <div class="form-group row">
                 <div class="col-md-12">
-                    <label><b>1.8 ระดับการศึกษาของผู้ตอบแบบสอบถาม *</b></label>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label for="educationLevel" class="radio-inline">
-                                <input type="radio" name="educationLevel" value="ประถมศึกษา" required="required"> ประถมศึกษา
-                            </label>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="educationLevel" class="radio-inline">
-                                <input type="radio" name="educationLevel" value="มัธยมศึกษาตอนต้น"> มัธยมศึกษาตอนต้น
-                            </label>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="educationLevel" class="radio-inline">
-                                <input type="radio" name="educationLevel" value="ปวช"> ปวช.
-                            </label>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="educationLevel" class="radio-inline">
-                                <input type="radio" name="educationLevel" value="มัธยมศึกษาตอนปลาย"> มัธยมศึกษาตอนปลาย
-                            </label>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="educationLevel" class="radio-inline">
-                                <input type="radio" name=educationLevel value="ปวส"> ปวส.
-                            </label>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="educationLevel" class="radio-inline">
-                                <input type="radio" name="educationLevel" value="ปริญญาตรี"> ปริญญาตรี
-                            </label>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="educationLevel" class="radio-inline">
-                                <input type="radio" name="educationLevel" value="สูงกว่าปริญญาตรี"> สูงกว่าปริญญาตรี
-                            </label>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="educationLevel" class="radio-inline">
-                                <input type="radio" name="educationLevel" value=""> อื่นๆ<input type="text" name="educationLeveltxt"/>
-                            </label>
-                        </div>
-                    </div>
+                    <label for="txtcommunity"><b>ชุมชน <span style="color: red">*</span></b></label>
+                    <input type="text" name="txtcommunity" class="form-control" placeholder="ชุมชน *" required="required" data-error="Number of member is required.">
+                    <div class="help-block with-errors"></div>
                 </div>
             </div>
 
-            <!-- occupation -->
             <div class="form-group row">
                 <div class="col-md-12">
-                    <label><b>1.9 อาชีพหลักของผู้ตอบแบบสอบถาม *</b></label>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label for="occupation" class="radio-inline">
-                                <input type="radio" name="occupation" value="รับราชการ/พนักงานของรัฐ" required="required"> รับราชการ/พนักงานของรัฐ
-                            </label>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="occupation" class="radio-inline">
-                                <input type="radio" name="occupation" value="รัฐวิสาหกิจ"> รัฐวิสาหกิจ
-                            </label>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="occupation" class="radio-inline">
-                                <input type="radio" name="occupation" value="ธุรกิจส่วนตัว"> ธุรกิจส่วนตัว
-                            </label>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="occupation" class="radio-inline">
-                                <input type="radio" name="occupation" value="พนักงานบริษัท"> พนักงานบริษัท
-                            </label>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="occupation" class="radio-inline">
-                                <input type="radio" name=occupation value="นักเรียน/นักศึกษา"> นักเรียน/นักศึกษา
-                            </label>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="occupation" class="radio-inline">
-                                <input type="radio" name="occupation" value="รับจ้างทั่วไป"> รับจ้างทั่วไป
-                            </label>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="occupation" class="radio-inline">
-                                <input type="radio" name="occupation" value="เกษตรกร"> เกษตรกร
-                            </label>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="occupation" class="radio-inline">
-                                <input type="radio" name="occupation" value="แม่บ้าน/พ่อบ้าน/เกษียณ"> แม่บ้าน/พ่อบ้าน/เกษียณ
-                            </label>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="occupation" class="radio-inline">
-                                <input type="radio" name="occupation" value="่างงาน/ไม่ประกอบอาชีพ"> ว่างงาน/ไม่ประกอบอาชีพ
-                            </label>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="occupation" class="radio-inline">
-                                <input type="radio" name="occupation" value=""> อื่นๆ<input type="text" name="occupationtxt"/>
-                            </label>
-                        </div>
-                    </div>
+                    <label for="txtgoodpoint"><b>จุดเด่นของเมือง <span style="color: red">*</span></b></label>
+                    <textarea name="txtgoodpoint" class="form-control" placeholder="จุดเด่นของเมือง *" rows="2" required="required" data-error="Please,leave us a message."></textarea>
+                    <div class="help-block with-errors"></div>
                 </div>
             </div>
 
             <div class="form-group row">
-                <div class="col-md-6">
-                    <label for="parttimetxt"><b>1.10 อาชีพเสริม</b></label>
-                    <input type="text" name="parttimetxt" class="form-control" placeholder="Enter your parttime" class="form-control">
-                </div>
-
-                <div class="col-md-6">
-                    <label for="salarytxt"><b>1.11 รายได้(อาชีพเสริม)</b></label>
-                    <input type="text" name="salaryparttimetxt" class="form-control" placeholder="Enter your salary">
+                <div class="col-md-12">
+                    <label for="txtbadpoint"><b>จุดด้อย/ปัญหาภายในเมือง <span style="color: red">*</span></b></label>
+                    <textarea name="txtbadpoint" class="form-control" placeholder="จุดด้อย/ปัญหาภายในเมือง *" rows="2" required="required" data-error="Please,leave us a message."></textarea>
+                    <div class="help-block with-errors"></div>
                 </div>
             </div>
 
             <div class="form-group row">
-                <div class="col-md-6">
-                    <label><b>1.12 ภูมิลำเนาเดิมของท่าน *</b></label>
-                    <div class="row">
-
-                        <div class="col-md-12">
-                            <label for="hometown" class="radio-inline">
-                                <input type="radio" name="hometown" value="ในพื้นที่(เกิดและเติบโตในพื้นที่)" required="required"> ในพื้นที่(เกิดและเติบโตในพื้นที่)
-                            </label>
-                        </div>
-
-                        <div class="col-md-12">
-                            <label for="hometown" class="radio-inline">
-                                <input type="radio" name="hometown" value=""> ย้ายมาจากพื้นที่อื่น  คือพื้นที่ <input type="text" name="hometowntxt"/>
-                            </label>
-                        </div>
-
-                    </div>
+                <div class="col-md-12">
+                    <label for="txtactivity"><b>โครงการหรือกิจกรรมที่คิดว่าจะทำให้เกิดการพัฒนา <span style="color: red">*</span></b></label>
+                    <textarea name="txtactivity" class="form-control" placeholder="โครงการหรือกิจกรรมที่คิดว่าจะทำให้เกิดการพัฒนา *" rows="3" required="required" data-error="Please,leave us a message."></textarea>
+                    <div class="help-block with-errors"></div>
                 </div>
+            </div>
 
-                <div class="col-md-6">
-                    <label for="numberOfLivetxt"><b>1.13 ระยะเวลาที่อยู่ในพื้นที่(ปี) *</b></label>
-                    <input type="number" name="numberOfLivetxt" class="form-control" required="required" data-error="Enter a time to live">
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <label for="txtfutureinchiangmai"><b>"เชียงใหม่ในอนาคต"จะเป็นอย่างไร(วิสัยทัศน์) <span style="color: red">*</span></b></label>
+                    <textarea name="txtfutureinchiangmai" class="form-control" placeholder="'เชียงใหม่ในอนาคต' จะเป็นอย่างไร(วิสัยทัศน์) *" rows="3" required="required" data-error="Please,leave us a message."></textarea>
                     <div class="help-block with-errors"></div>
                 </div>
 
             </div>
+
             <br>
             <div class="row">
                 <div class="col-md-12">
-                    <input type="submit" class="btn btn-success btn-send" value="Send Survay">
+                    <input type="submit" class="btn btn-success btn-send" value="ส่ง">
                 </div>
 
                 <div class="col-md-12">
@@ -305,18 +150,5 @@
             </span>
         </div>
     </footer>
-
-    <script>
-        $(document).ready(function () {
-            $("input[name='checkboxvar[]']").change(function () {
-                var maxAllowed = 10;
-                var cnt = $("input[name='checkboxvar[]']:checked").length;
-                if (cnt > maxAllowed) {
-                    $(this).prop("checked", "");
-                    alert('You can select maximum ' + maxAllowed + ' technologies!!');
-                }
-            });
-        });
-    </script>
     </body>
     </html>
