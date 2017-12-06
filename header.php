@@ -8,10 +8,10 @@
     <title>E-cup Website</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="webpoll/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/cover.css" rel="stylesheet">
+    <link href="webpoll/css/cover.css" rel="stylesheet">
 
 </head>
 
@@ -38,10 +38,6 @@
 
                         <div class="col-md-2">
                             <a class="nav-link" href="/ecupweb/poll/poll.php">Polls</a>
-                        </div>
-
-                        <div class="col-md-2">
-                            <a class="nav-link" href="/ecupweb/activity/activity.php">Activitys</a>
                         </div>
 
                         <div class="col-md-2" style="width: 200px">

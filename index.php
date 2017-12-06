@@ -17,7 +17,26 @@
 <body>
 <div class="site-wrapper">
     <div class="site-wrapper-inner">
-        <?php include 'header.php' ?>
+        <nav class="row col-md-12 navbar navbar-expand-md navbar-dark fixed-top">
+            <a class="navbar-brand" href="#">ECUP</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                </ul>
+
+                <div class="my-0 my-lg-0">
+                    <nav class="nav nav-masthead">
+                        <div class="col-md-2">
+                            <a href="/ecupweb/login/login.php" class="btn btn-secondary">Login?</a>
+                        </div>
+                    </nav>
+
+                </div>
+            </div>
+        </nav>
 
         <div class="cover-container">
             <header class="masthead clearfix">
@@ -26,8 +45,10 @@
             </header>
 
             <main role="main" class="inner cover">
-                <h1 class="cover-heading">Welcome to E-cup Website</h1>
-                <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+                <h1 class="cover-heading">Welcome</h1>
+                <p class="lead">
+                    Cover is a one-page template for building simple and beautiful home pages. Download,
+                    edit the text, and add your own fullscreen background photo to make it your own.</p>
 
                 <div class="panel panel-info">
                     <div class="panel-heading">
@@ -37,8 +58,8 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-6" >
-                                <a href="#" class="btn"><img src="/osmpoll/pic/loginwithfacebook.png" style="width: 300px;"></a>
-                                <a href="#" class="btn"><img src="/osmpoll/pic/loginwithgoogle.png" style="width: 300px;"> </a>
+                                <a href="#" class="btn"><img src="pic/loginwithfacebook.png" style="width: 300px;"></a>
+                                <a href="#" class="btn"><img src="pic/loginwithgoogle.png" style="width: 300px;"> </a>
                                 <a href="../register/index.php" class="btn btn-lg btn-secondary" style="width: 300px; margin-top: 7px;">Register By Email</a>
                             </div>
 
