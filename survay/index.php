@@ -1,3 +1,10 @@
+<?php session_start();
+$_SESSION["Name"];
+$pieces = explode(" ", $_SESSION["Name"]);
+$firstname = $pieces[0];
+$lastname = $pieces[1];
+?>;=
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -35,7 +42,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
-                    Welcome Pornpunnarai Saimoonkham
+                  Hello! <?php echo $_SESSION["Name"] ?>
                 </ul>
                 <form class="form-inline mt-2 mt-md-0">
                         <a class="btn btn-warning" href="logout.php">logout</a>
@@ -63,12 +70,12 @@
             <div class="form-group row">
                 <div class="col-md-6">
                     <label for="txtfirstname"><b>ชื่อ <span style="color: red">*</span></b></label>
-                    <input type="text" name="txtfirstname" class="form-control" placeholder="กรุณากรอกชื่อ *" required="required" data-error="Firstname is required.">
+                    <input type="text" name="txtfirstname" class="form-control" placeholder="กรุณากรอกชื่อ *" value="<?php echo $firstname; ?>" required="required" data-error="Firstname is required.">
                     <div class="help-block with-errors"></div>
                 </div>
                 <div class="col-md-6">
                     <label for="txtlastname"><b>นามสกุล <span style="color: red">*</span></b></label>
-                    <input type="text" name="txtlastname" class="form-control" placeholder="กรุณากรอกนามสกุล *" required="required" data-error="Lastname is required.">
+                    <input type="text" name="txtlastname" class="form-control" placeholder="กรุณากรอกนามสกุล *" value="<?php echo $lastname; ?>" required="required" data-error="Lastname is required.">
                     <div class="help-block with-errors"></div>
                 </div>
             </div>
@@ -76,13 +83,13 @@
             <div class="form-group row">
                 <div class="col-md-4">
                     <label for="txtphone"><b>เบอร์โทร <span style="color: red">*</span></b></label>
-                    <input type="text" name="txtphone" class="form-control" placeholder="กรุณากรอกเบอร์โทร *" required="required" data-error="Age is required.">
+                    <input type="text" name="txtphone" class="form-control" placeholder="กรุณากรอกเบอร์โทร *"  required="required" data-error="Age is required.">
                     <div class="help-block with-errors"></div>
                 </div>
 
                 <div class="col-md-8">
                     <label for="txtemail"><b>อีเมล์ <span style="color: red">*</span></b></label>
-                    <input type="email" name="txtemail" placeholder="กรุณากรอกอีเมล์ *" class="form-control" required="required" data-error="Email is required.">
+                    <input type="email" name="txtemail" placeholder="กรุณากรอกอีเมล์ *" class="form-control" value="<?php echo $_SESSION["Email"]; ?>" required="required" data-error="Email is required.">
                     <div class="help-block with-errors"></div>
                 </div>
             </div>

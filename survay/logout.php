@@ -2,6 +2,6 @@
 
 session_start();
 session_destroy();
-header("location:/webpoll/index.php")
+header("location:/osmpoll/index.php")
 
 ?>

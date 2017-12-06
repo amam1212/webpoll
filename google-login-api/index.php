@@ -66,14 +66,8 @@ if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
 
 //Display user info or display login url as per the info we have.
 echo '<div style="margin:20px">';
-if (isset($authUrl)){ 
-	//show login url
-	echo '<div align="center">';
-	echo '<h3>Login with Google -- Demo</h3>';
-	echo '<div>Please click login button to connect to Google.</div>';
-	echo '<a class="login" href="' . $authUrl . '"><img src="images/google-login-button.png" /></a>';
-	echo '</div>';
-	
+if (isset($authUrl)){
+   header('location: '.$authUrl.'');
 } else {
 	
 	$user = $service->userinfo->get(); //get user info 
@@ -92,50 +86,57 @@ if (isset($authUrl)){
 	//show user picture
 	echo '<img src="'.$user->picture.'" style="float: right;margin-top: 33px;" />';
 
-
-    $sql = "SELECT COUNT(*) AS count from member where email = '$user->email'";
+//    $sql = "SELECT COUNT(*) AS count from member where email = '$user->email'";
+    $sql = "SELECT * from member WHERE email = '$user->email'";
     $objQuery = mysqli_query($objCon,$sql);
     $result = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 
 
 	if($user_count) //if user already exist change greeting text to "Welcome Back"
     {
-        $_SESSION["UserID"] = "TEST";
-        echo 'Welcome back '.$user->name.'! [<a href="'.$redirect_uri.'?logout=1">Log Out</a>]';
 
-        echo '<pre>';
-        print_r($user);
-        echo '</pre>';
+        $sql = "SELECT m.id,g.google_name as name, m.email,m.type from member m Inner Join google_users g on m.email = '$user->email'";
+        mysqli_set_charset($objCon,"utf8");
+        $objQuery = mysqli_query($objCon,$sql);
+        $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
+
+
+       $_SESSION["User_ID"] = $objResult["id"];
+        $_SESSION["Name"] = $objResult["name"];
+        $_SESSION["Email"] = $objResult["email"];
+        $_SESSION["Type"] = $objResult["type"];
+
+
+
+
+       header('location:/osmpoll/survay');
 
     }
 
-    else if(intval($result["count"]) == 0) { //else greeting text "Thanks for registering"
+    else if(!$result) { //else greeting text "Thanks for registering"
 
 
-            echo 'Hi ' . $user->name . ', Thanks for Registering! [<a href="' . $redirect_uri . '?logout=1">Log Out</a>]';
             $statement = $mysqli->prepare("INSERT INTO google_users (google_id, google_name, google_email, google_link, google_picture_link) VALUES (?,?,?,?,?)");
             $statement->bind_param('issss', $user->id, $user->name, $user->email, $user->link, $user->picture);
             $statement->execute();
 
-            $Type = "google";
+            $Type = "Google";
             $strSQL = "INSERT INTO `member` ( `email`, `type`) VALUES ('$user->email','$Type')";
             echo "$strSQL";
             $objQuery = mysqli_query($objCon, $strSQL);
             mysqli_close($objCon);
 
             echo $mysqli->error;
+        header('location:/osmpoll/survay');
+
         }
 
-    else if(intval($result["count"]) == 1){
-	    echo "This is Email already exist in database";
+    else if($result){
+	    echo "This is Email already exist in database by ". $result["type"];
         }
 
 
 
-	//print user details
-	echo '<pre>';
-
-	echo '</pre>';
 
 }
 echo '</div>';

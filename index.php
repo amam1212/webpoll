@@ -59,8 +59,8 @@
                         <div class="row">
                             <div class="col-md-6" >
                                 <a href="#" class="btn"><img src="pic/loginwithfacebook.png" style="width: 300px;"></a>
-                                <a href="#" class="btn"><img src="pic/loginwithgoogle.png" style="width: 300px;"> </a>
-                                <a href="../register/index.php" class="btn btn-lg btn-secondary" style="width: 300px; margin-top: 7px;">Register By Email</a>
+                                <a href="/osmpoll/google-login-api" class="btn"><img src="pic/loginwithgoogle.png" style="width: 300px;"> </a>
+                                <a href="/osmpoll/register" class="btn btn-lg btn-secondary" style="width: 300px; margin-top: 7px;">Register By Email</a>
                             </div>
 
                             <div class="col-md-6" style="border-left:1px solid #ccc;height:160px">

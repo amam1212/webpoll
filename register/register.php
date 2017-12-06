@@ -3,36 +3,10 @@ require_once './config.php';
 include '../connect-mysql.php';
 session_start();
 
-//
-//$FirstName = $_POST['txtFirstname'];
-//$LastName = $_POST['txtLastname'];
-//$Telephone = $_POST['txtTel'];
-//$Email = $_POST['txtEmail'];
-//$Password = $_POST['txtPassword'];
-//$RePassword = $_POST['txtRepassword'];
-//$Picture = trim($_POST['pic']);
-
-//echo $FirstName;
-//echo "  ";
-//echo $LastName;
-//echo "  ";
-//echo $Telephone;
-//echo "  ";
-//echo $Email;
-//echo "  ";
-//echo $Password;
-//echo "  ";
-//echo $RePassword;
-//echo "  ";
-//echo $Picture;
-
-
 
 if (isset($_POST["txtFirstname"])) {
     require_once "phpmailer/class.phpmailer.php";
-//    $name = trim($_POST["uname"]);
-//    $pass = trim($_POST["pass1"]);
-//    $email = trim($_POST["uemail"]);
+
 
     $FirstName = trim($_POST['txtFirstname']);
     $LastName = trim($_POST['txtLastname']);
@@ -41,17 +15,22 @@ if (isset($_POST["txtFirstname"])) {
     $Password = trim($_POST['txtPassword']);
     $RePassword = trim($_POST['txtRepassword']);
     $Picture = trim($_POST['pic']);
-    $Type = "email";
+    $Type = "Register";
 
-    $sql = "SELECT COUNT(*) AS count from member where email = :email_id";
+//    $sql = "SELECT COUNT(*) AS count from member where email = :email_id";
+
+    $sql = "SELECT * from member WHERE email = '$Email'";
+    $objQuery = mysqli_query($objCon,$sql);
+    $result = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
+
     try {
-        $stmt = $DB->prepare($sql);
-        $stmt->bindValue(":email_id", $Email);
-        $stmt->execute();
-        $result = $stmt->fetchAll();
+//        $stmt = $DB->prepare($sql);
+//        $stmt->bindValue(":email_id", $Email);
+//        $stmt->execute();
+//        $result = $stmt->fetchAll();
 
-        if ($result[0]["count"] > 0) {
-            $msg = "Email already exist";
+        if ($result) {
+            $msg = "Email already exist by ". $result["type"] ;
             $msgType = "warning";
             echo $msg;
         } else {

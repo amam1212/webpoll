@@ -17,8 +17,9 @@ $txtfutureinchiangmai = $_POST['txtfutureinchiangmai'];
 mysqli_set_charset($objCon,"utf8");
 
 //insert to survaysectionone
-$sql ="INSERT INTO survay (mid, areaid, firstname,lastname,age,gender,email,phone,message,amountOfFamily,educationLevel,mainOccupation,
-    parttime,parttimesalary,amountOftimetoLive,hometown) VALUES ('$mid', '$txtfirstname', '$txtlastname','$txtphone',
+
+$sql ="INSERT INTO survay (user_id, firstname, lastname,phone,email,community,badpoint,goodpoint,activity,futureinchiangmai) 
+VALUES ('$mid', '$txtfirstname', '$txtlastname','$txtphone',
     '$txtemail','$txtcommunity','$txtgoodpoint','$txtbadpoint','$txtactivity', '$txtfutureinchiangmai')";
 $query = mysqli_query($objCon, $sql);
 

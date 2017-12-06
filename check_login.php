@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../db/connect-mysql.php';
+include 'connect-mysql.php';
 
 $strSQL = "SELECT * FROM users WHERE email = '".mysqli_real_escape_string($objCon,$_POST['txtEmail'])."' 
 	and password = '".mysqli_real_escape_string($objCon,md5($_POST['txtPassword']))."'";
@@ -12,8 +12,10 @@ if(!$objResult)
 }
 else
 {
-    $_SESSION["UserID"] = $objResult["id"];
-    $_SESSION["Status"] = $objResult["status"];
+    $_SESSION["User_ID"] = $objResult["id"];
+    $_SESSION["Name"] = $objResult["firstname"]." ".$objResult["lastname"];
+    $_SESSION["Email"] = $objResult["email"];
+    $_SESSION["Type"] = "Register";
 
     session_write_close();
 
@@ -24,8 +26,8 @@ else
     }
     else
     {
-//        header("location:user_page.php");
-        echo "fail";
+        header("location:/osmpoll/survay");
+//        echo "fail";
     }
 }
 mysqli_close($objCon);
