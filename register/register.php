@@ -7,7 +7,6 @@ session_start();
 if (isset($_POST["txtFirstname"])) {
     require_once "phpmailer/class.phpmailer.php";
 
-
     $FirstName = trim($_POST['txtFirstname']);
     $LastName = trim($_POST['txtLastname']);
     $Telephone = trim($_POST['txtTel']);
