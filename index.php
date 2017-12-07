@@ -12,6 +12,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/cover.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -53,12 +54,19 @@
             <div class="row">
                 <div class="col-md-12">
                     <form class="form-horizontal" method="post" action="check_login.php">
-                        <div class="col-md-12" style="justify-content: center">
-                            <input name="txtEmail" type="email" placeholder="Enter your email" class="form-control input-md" required autofocus>
-                        </div><br/>
-                        <div class="col-md-12" style="justify-content: center">
-                            <input name="txtPassword" type="password" placeholder="Enter your Password" class="form-control input-md">
+
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;Email</span>
+                            <input type="email" class="form-control" name="txtEmail" placeholder="Enter your email" required="required">
                         </div>
+                        <br>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i>&nbsp; Password</span>
+                            <input type="password" class="form-control" id="txtPassword" name="txtPassword" placeholder="Enter your Password"
+                                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                   title="Must contain at least one number and one uppercase and lowercase letter,and at least 8 or more characters" required>
+                        </div>
+
                         <div class="spacing">
                             <a href="#">
                                 <small> Forgot Password?</small>
@@ -67,8 +75,8 @@
                         <div class="spacing">
                             <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
                             <small> Remember me</small>
-                        </div>
-                        <button name="submit" class="btn btn-dark pull-right">Sign In</button>
+                        </div><br/>
+                        <button name="submit" class="btn btn-warning" style="width: 30%; border-radius: 25px;">Sign In</button>
                     </form>
                 </div>
             </div>
