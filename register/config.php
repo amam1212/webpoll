@@ -9,11 +9,11 @@ define('PROJECT_NAME', 'User Registration with Email Verification with PHP and M
 define('DB_DRIVER', 'mysql');
 define('DB_SERVER', 'localhost');
 define('DB_SERVER_USERNAME', 'root');
-define('DB_SERVER_PASSWORD', '');
+define('DB_SERVER_PASSWORD', '1q2w3e4r');
 define('DB_DATABASE', 'pollosm');
 
 // must end with a slash
-define('SITE_URL', 'http://localhost/osmpoll/register/');
+define('SITE_URL', 'http://www.testpoll.ml/osmpoll/register/');
 
 $dboptions = array(
     PDO::ATTR_PERSISTENT => FALSE,

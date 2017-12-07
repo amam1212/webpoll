@@ -97,7 +97,7 @@
             <div class="row panel-info">
 
                 <div class="col-md-4">
-                    <a href="#" class="btn"><img src="pic/loginwithfacebook.png" style="width: 100%;"></a>
+                    <a href="/osmpoll/facebook-login-api" class="btn"><img src="pic/loginwithfacebook.png" style="width: 100%;"></a>
                 </div>
                 <div class="col-md-4">
                     <a href="/osmpoll/google-login-api" class="btn"><img src="pic/loginwithgoogle.png" style="width: 100%;"></a>

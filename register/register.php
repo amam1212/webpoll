@@ -7,6 +7,7 @@ session_start();
 if (isset($_POST["txtFirstname"])) {
     require_once "phpmailer/class.phpmailer.php";
 
+
     $FirstName = trim($_POST['txtFirstname']);
     $LastName = trim($_POST['txtLastname']);
     $Telephone = trim($_POST['txtTel']);
@@ -74,10 +75,10 @@ if (isset($_POST["txtFirstname"])) {
                 $mail->Host = "smtp.gmail.com";      // sets GMAIL as the SMTP server
                 $mail->Port = 465;                   // set the SMTP port for the GMAIL server
 
-                $mail->Username = 'amparuj@gmail.com';
-                $mail->Password = 'rag12005';
+                $mail->Username = 'ecup.spp@gmail.com';
+                $mail->Password = 'spp123456';
 
-                $mail->SetFrom('amparuj@gmail.com', 'amparuj');
+                $mail->SetFrom('ecup.spp@gmail.com', 'ecup');
                 $mail->AddAddress($Email);
 
                 $mail->Subject = trim("Email Verifcation - www.thesoftwareguy.in");

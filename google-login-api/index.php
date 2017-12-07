@@ -7,7 +7,7 @@ require_once ('libraries/Google/autoload.php');
 //You can get it from : https://console.developers.google.com/
 $client_id = '789734654158-fabi89p3h2rh99nhi2dltc08tm95o3c5.apps.googleusercontent.com';
 $client_secret = '3gDaLAuGHuEpejWKKRV9ZMmv';
-$redirect_uri = 'http://localhost:81/osmpoll/google-login-api/';
+$redirect_uri = 'http://www.testpoll.ml/osmpoll/google-login-api/';
 
 //database
 
@@ -94,8 +94,8 @@ if (isset($authUrl)){
 
 	if($user_count) //if user already exist change greeting text to "Welcome Back"
     {
-
-        $sql = "SELECT m.id,g.google_name as name, m.email,m.type from member m Inner Join google_users g on m.email = '$user->email'";
+        $sql = "SELECT m.id,g.google_name as name, m.email,m.type from member m INNER Join google_users g on m.email = g.google_email
+WHERE g.google_email = '$user->email'";
         mysqli_set_charset($objCon,"utf8");
         $objQuery = mysqli_query($objCon,$sql);
         $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
@@ -116,17 +116,32 @@ if (isset($authUrl)){
     else if(!$result) { //else greeting text "Thanks for registering"
 
 
-            $statement = $mysqli->prepare("INSERT INTO google_users (google_id, google_name, google_email, google_link, google_picture_link) VALUES (?,?,?,?,?)");
+             $statement = $mysqli->prepare("INSERT INTO google_users (google_id, google_name, google_email, google_link, google_picture_link) VALUES (?,?,?,?,?)");
             $statement->bind_param('issss', $user->id, $user->name, $user->email, $user->link, $user->picture);
             $statement->execute();
 
             $Type = "Google";
             $strSQL = "INSERT INTO `member` ( `email`, `type`) VALUES ('$user->email','$Type')";
-            echo "$strSQL";
+            //echo "$strSQL";
             $objQuery = mysqli_query($objCon, $strSQL);
-            mysqli_close($objCon);
+
 
             echo $mysqli->error;
+
+        $sql = "SELECT m.id,g.google_name as name, m.email,m.type from member m INNER Join google_users g on m.email = g.google_email
+WHERE g.google_email = '$user->email'";
+        mysqli_set_charset($objCon,"utf8");
+        $objQuery = mysqli_query($objCon,$sql);
+        $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
+
+
+        $_SESSION["User_ID"] = $objResult["id"];
+        $_SESSION["Name"] = $objResult["name"];
+        $_SESSION["Email"] = $objResult["email"];
+        $_SESSION["Type"] = $objResult["type"];
+
+
+        mysqli_close($objCon);
         header('location:/osmpoll/survay');
 
         }
