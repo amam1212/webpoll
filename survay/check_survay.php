@@ -1,6 +1,6 @@
 <?php include 'connect-mysql.php';
 session_start();
-$mid = $_POST["mid"];
+$userid = $_SESSION["User_ID"];
 
 //section one
 $txtfirstname = $_POST['txtfirstname'];
@@ -19,12 +19,14 @@ mysqli_set_charset($objCon,"utf8");
 //insert to survaysectionone
 
 $sql ="INSERT INTO survay (user_id, firstname, lastname,phone,email,community,badpoint,goodpoint,activity,futureinchiangmai) 
-VALUES ('$mid', '$txtfirstname', '$txtlastname','$txtphone',
+VALUES ('$userid', '$txtfirstname', '$txtlastname','$txtphone',
     '$txtemail','$txtcommunity','$txtgoodpoint','$txtbadpoint','$txtactivity', '$txtfutureinchiangmai')";
+
+echo  $userid;
 $query = mysqli_query($objCon, $sql);
 
 
-$strSQL = "SELECT * FROM survay WHERE firstname = '$txtfirstname' and lastname = '$txtlastname' and mid = '$mid' and areaid = '$areaid'";
+$strSQL = "SELECT * FROM survay WHERE firstname = '$txtfirstname' and lastname = '$txtlastname' and user_id = '$userid'";
 $objQuery = mysqli_query($objCon, $strSQL);
 $objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC);
 
