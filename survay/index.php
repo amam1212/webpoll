@@ -133,17 +133,9 @@ $lastname = $pieces[1];
 
             </div>
 
-            <br>
-            <div class="row">
-                <div class="col-md-12">
-                    <input type="submit" class="btn btn-success btn-send" value="ส่ง">
-                </div>
-
-                <div class="col-md-12">
-                    <p class="text-muted">
-                        <strong>*</strong> These fields are required.</p>
-                </div>
-
+            <div class="row" style="justify-content:center;">
+                <button name="submit" class="btn btn-warning" style="justify-content:center; width: 30%; border-radius: 25px;">Send</button>
+            </div>
         </form>
     </main>
 
