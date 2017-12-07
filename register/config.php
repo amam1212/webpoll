@@ -13,7 +13,7 @@ define('DB_SERVER_PASSWORD', '');
 define('DB_DATABASE', 'pollosm');
 
 // must end with a slash
-define('SITE_URL', 'http://localhost:81/osmpoll/register/');
+define('SITE_URL', 'http://localhost/osmpoll/register/');
 
 $dboptions = array(
     PDO::ATTR_PERSISTENT => FALSE,

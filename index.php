@@ -8,97 +8,108 @@
     <title>E-cup Website</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/css/cover.css" rel="stylesheet">
+    <link href="css/cover.css" rel="stylesheet">
 </head>
 
 <body>
-<div class="site-wrapper">
-    <div class="site-wrapper-inner">
-        <nav class="row col-md-12 navbar navbar-expand-md navbar-dark fixed-top">
-            <a class="navbar-brand" href="#">ECUP</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                <ul class="navbar-nav mr-auto">
-                </ul>
+<header>
+<!--     Fixed navbar -->
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+                <a class="navbar-brand" href="#">E-CUP</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                <div class="my-0 my-lg-0">
-                    <nav class="nav nav-masthead">
-                        <div class="col-md-2">
-                            <a href="/ecupweb/login/login.php" class="btn btn-secondary">Login?</a>
-                        </div>
-                    </nav>
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                    <ul class="navbar-nav mr-auto">
+                    </ul>
 
-                </div>
-            </div>
-        </nav>
+                    <div class="my-0 my-lg-0">
+<!--                        <nav class="nav nav-masthead">-->
+<!--                            <div class="col-md-2">-->
+<!--                                <a href="/ecupweb/login/login.php" class="btn btn-secondary">Login?</a>-->
+<!--                            </div>-->
+<!--                        </nav>-->
 
-        <div class="cover-container">
-            <header class="masthead clearfix">
-                <div class="inner">
-                </div>
-            </header>
-
-            <main role="main" class="inner cover">
-                <h1 class="cover-heading">Welcome</h1>
-                <p class="lead">
-                    Cover is a one-page template for building simple and beautiful home pages. Download,
-                    edit the text, and add your own fullscreen background photo to make it your own.</p>
-
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
-                    </div>
-
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-6" >
-                                <a href="#" class="btn"><img src="pic/loginwithfacebook.png" style="width: 300px;"></a>
-                                <a href="/osmpoll/google-login-api" class="btn"><img src="pic/loginwithgoogle.png" style="width: 300px;"> </a>
-                                <a href="/osmpoll/register" class="btn btn-lg btn-secondary" style="width: 300px; margin-top: 7px;">Register By Email</a>
-                            </div>
-
-                            <div class="col-md-6" style="border-left:1px solid #ccc;height:160px">
-                                <form class="form-horizontal" method="post" action="check_login.php">
-                                    <div class="row col-md-12">
-                                        <input name="txtEmail" type="email" placeholder="Enter your email" class="form-control input-md" required autofocus>
-                                    </div><br/>
-                                    <div class="row col-md-12">
-                                        <input name="txtPassword" type="password" placeholder="Enter your Password" class="form-control input-md">
-                                    </div>
-                                    <div class="spacing">
-                                        <a href="#">
-                                            <small> Forgot Password?</small>
-                                        </a><br/>
-                                    </div>
-                                    <div class="spacing">
-                                        <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
-                                        <small> Remember me</small>
-                                    </div>
-                                    <button name="submit" class="btn btn-info btn-sm pull-right">Sign In</button>
-                                </form>
-                            </div>
-                        </div>
                     </div>
                 </div>
-            </main>
+            </nav>
+</header>
 
-            <footer class="mastfoot">
-            <div class="inner">
-            <p>Created by <b style="color: white">ecup developer</b>.</p>
-            </div>
-            </footer>
 
+<main role="main" class="container">
+    <h1 class="cover-heading">Welcome</h1>
+    <p class="lead">
+<hr>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Please Sign In</h3>
         </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <form class="form-horizontal" method="post" action="check_login.php">
+                        <div class="col-md-12" style="justify-content: center">
+                            <input name="txtEmail" type="email" placeholder="Enter your email" class="form-control input-md" required autofocus>
+                        </div><br/>
+                        <div class="col-md-12" style="justify-content: center">
+                            <input name="txtPassword" type="password" placeholder="Enter your Password" class="form-control input-md">
+                        </div>
+                        <div class="spacing">
+                            <a href="#">
+                                <small> Forgot Password?</small>
+                            </a><br/>
+                        </div>
+                        <div class="spacing">
+                            <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+                            <small> Remember me</small>
+                        </div>
+                        <button name="submit" class="btn btn-dark pull-right">Sign In</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="panel-body">
+            <div class="row">
+            <div class="col-md-5">
+                <hr>
+            </div>
+            <div class="col-md-2">
+                OR
+            </div>
+            <div class="col-md-5">
+                <hr>
+            </div>
+            </div>
+            <div class="row panel-info">
 
+                <div class="col-md-4">
+                    <a href="#" class="btn"><img src="pic/loginwithfacebook.png" style="width: 100%;"></a>
+                </div>
+                <div class="col-md-4">
+                    <a href="/osmpoll/google-login-api" class="btn"><img src="pic/loginwithgoogle.png" style="width: 100%;"></a>
+                </div>
+                <div class="col-md-4">
+                    <a href="/osmpoll/register" class="btn btn-group-sm btn-secondary" style="width: 92%; margin-top: 4%;">Register By Email</a>
+                </div>
+            </div>
+        </div>
     </div>
+    <hr>
+</main>
 
-</div>
+<footer class="footer">
+    <div class="container">
+            <span class="text-muted">
+                <p>Created by <b style="color: white">ecup developer</b>.</p>
+            </span>
+    </div>
+</footer>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

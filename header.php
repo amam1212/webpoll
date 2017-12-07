@@ -8,10 +8,10 @@
     <title>E-cup Website</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="webpoll/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="webpoll/css/cover.css" rel="stylesheet">
+    <link href="css/cover.css" rel="stylesheet">
 
 </head>
 

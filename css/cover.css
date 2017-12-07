@@ -31,10 +31,10 @@ body {
   background-color: #333;
 }
 html{
-
   background-color: darkslategray;
 }
 body {
+  background-color: darkslategray;
   color: #fff;
   text-align: center;
   text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
@@ -63,7 +63,9 @@ body {
   padding: 2rem;
 }
 
-
+main.container{
+  margin-top: 70px;
+}
 /*
  * Header
  */
@@ -206,9 +208,13 @@ h3.panel-title{
   background-color: darkslategray;
 }
 
-
 .footer > .container {
   padding-right: 15px;
   padding-left: 15px;
   background-color: darkslategray;
+}
+
+div.row.panel-info{
+  background-color: gray;
+  border-radius: 25px;
 }

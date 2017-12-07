@@ -49,8 +49,6 @@ $lastname = $pieces[1];
                 </form>
             </div>
         </nav>
-        </div>
-
     </header>
 
     <!-- Begin page content -->
