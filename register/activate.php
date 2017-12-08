@@ -46,32 +46,27 @@ if (isset($_GET["id"])) {
 
 <?php if ($msg <> "") {
     echo "<script type='text/javascript'>alert('$msg')</script>";
-    ?>
-<!--  <div class="alert alert-dismissable alert---><?php //echo $msgType; ?><!--">-->
-<!--    <button data-dismiss="alert" class="close" type="button">x</button>-->
-<!--    <p>-->
-<!--    --><?php //echo $msg; ?>
-    <!--</p>-->
-<!--  </div>-->
-
-
+?>
 <?php }
 ?>
-<head>
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-<!--      <h1>Thank you for registering with us.</h1>-->
-        <img src="../pic/activatedAlready.JPG">
-        <button name="submit" class="btn btn-info" href="../index.php" style="width: 50%; border-radius: 25px;">BACK</button>
-<!--        --><?php
-//        echo "<script>setTimeout(\"location.href = '../index.php';\",2000);</script>";
-//        ?>
+
+    <html>
+    <head>
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+    <div class="row col-md-12" style="margin-left: 10px; margin-top: 10px">
+        <div class="card" style="justify-content: center;width: 100%;padding: 50px;text-align: center;">
+            <div class="row" style="justify-content: center">
+                <img src="/osmpoll/pic/activatedAlready.JPG" style="width: 100%; justify-content: center"><br>
+            </div>
+            <div class="row" style="justify-content: center">
+                <a href="/osmpoll" class="btn btn-info" style="width: 50%; border-radius: 25px;">Go To Login!</a>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
+    </body>
+    </html>
 
 <script type="text/javascript">
 

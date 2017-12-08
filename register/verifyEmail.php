@@ -1,4 +1,3 @@
-
 <html>
 <head>
     <title>Email Verification</title>
@@ -22,3 +21,21 @@
 
 </body>
 </html>
+
+<!--<html>-->
+<!--<head>-->
+<!--    <link href="/css/bootstrap.min.css" rel="stylesheet">-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="row col-md-12" style="margin-left: 10px; margin-top: 10px">-->
+<!--    <div class="card" style="justify-content: center;width: 100%;padding: 50px;text-align: center;">-->
+<!--        <div class="row" style="justify-content: center">-->
+<!--            <img src="../pic/activatedAlready.JPG" style="width: 100%; justify-content: center"><br>-->
+<!--        </div>-->
+<!--        <div class="row" style="justify-content: center">-->
+<!--            <a href="../index.php" class="btn btn-info" style="width: 50%; border-radius: 25px;">Go To Login!</a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
