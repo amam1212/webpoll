@@ -3,7 +3,13 @@ $_SESSION["Name"];
 $pieces = explode(" ", $_SESSION["Name"]);
 $firstname = $pieces[0];
 $lastname = $pieces[1];
-?>;=
+
+
+if(!isset($_SESSION["User_ID"])){
+    header('location:/osmpoll/');
+}
+
+?>
 
 <html>
     <head>

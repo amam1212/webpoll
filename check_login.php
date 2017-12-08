@@ -13,27 +13,25 @@ if(!$objResult)
 }
 else
 {
-    $_SESSION["User_ID"] = $objResult["id"];
-    $_SESSION["Name"] = $objResult["firstname"]." ".$objResult["lastname"];
-    $_SESSION["Email"] = $objResult["email"];
-    $_SESSION["Type"] = "Register";
 
-    session_write_close();
 
     if($objResult["status"] == "approved")
     {
-        //header("location:admin_page.php");
-        //echo "Pass";
+        $_SESSION["User_ID"] = $objResult["id"];
+        $_SESSION["Name"] = $objResult["firstname"]." ".$objResult["lastname"];
+        $_SESSION["Email"] = $objResult["email"];
+        $_SESSION["Type"] = "Register";
+
+        session_write_close();
 
         echo "<script type='text/javascript'>alert('Login Successful! Welcome to E-cup Website')</script>";
-        echo "<script>setTimeout(\"location.href = '../survay';\",2000);</script>";
+        echo "<script>setTimeout(\"location.href = '/osmpoll/survay';\",2000);</script>";
     }
     else
     {
         echo "<script type='text/javascript'>alert('Login Failed! Please Verify you Email Address')</script>";
-        echo "<script>setTimeout(\"location.href = 'index.php';\",2000);</script>";
+        echo "<script>setTimeout(\"location.href = '/osmpoll/index.php';\",2000);</script>";
 
-        //header("location:/osmpoll/survay");
         //echo "fail";
     }
 }

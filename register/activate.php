@@ -2,6 +2,14 @@
 require_once './config.php';
 
 if (isset($_GET["id"])) {
+
+    $u_time = intval(base64_decode($_GET["time"])); // fetching time variable from URL
+    $cur_time = time(); //fetching current time to check with GET variable's time
+    if ($cur_time - $u_time < 600) {
+
+
+
+
   $id = intval(base64_decode($_GET["id"]));
  
   $sql = "SELECT * FROM users WHERE id = :id";
@@ -31,6 +39,7 @@ if (isset($_GET["id"])) {
   } catch (Exception $ex) {
     echo $ex->getMessage();
   }
+}
 }
 ?>
 

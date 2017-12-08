@@ -38,9 +38,9 @@ if (isset($accessToken)) {
   $response = $fb->get('/me?fields=id,name,gender,email,link', $accessToken);
 
   $user = $response->getGraphUser();
-  echo'<pre>';
-  print_r($user);
-  echo'</pre>';
+//  echo'<pre>';
+//  print_r($user);
+//  echo'</pre>';
 
   //echo 'ID: ' . $user['id'];
   //echo 'Name: ' . $user['name'];
