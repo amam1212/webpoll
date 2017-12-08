@@ -25,6 +25,7 @@ if (isset($_POST["txtEmail"])) {
             $objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC);
             mysqli_close($objCon);
             $lastID = $objResult["id"];
+            $name = $objResult["firstname"].$objResult["lastname"];
 
             $message = '<html><head>
                 <title>Reset Password</title>
@@ -36,14 +37,14 @@ if (isset($_POST["txtEmail"])) {
 
             $message .= '<img src="../pic/forgetpw.JPG" style="width: 100%;"><br>';
             $message .= '<h3>Forgot your password?</h3>';
-            $message .= '<hr><h4>' . $name . '</h4><hr>';
+            $message .= '<hr><h4 style="color:#80d5ee;">' . $name . '</h4><hr>';
             $time = time();
             $message .= '<h3>Please click on the link below to change your password</h3>';
             $message .= '<p><a href="' . SITE_URL . 'newpassword.php?id=' . base64_encode($lastID).'&time=' .base64_encode($time). '">
-            <button type="button" style="background-color:#bdd7ee; color: white;border: none;padding: 15px 32px;
+            <button type="button" style="background-color:#80d5ee; color: white;border: none;padding: 15px 32px;
             font-size: 16px; margin: 4px 2px;  cursor: pointer;">Reset Your Password</button>              
             </a><br><br>';
-            $message .= '<small>Email send by <span style="color: #bdd7ee"><b>E-cup Developer</b></span></small>';
+            $message .= '<small>Email send by <span style="color: #80d5ee"><b>E-cup Developer</b></span></small>';
             $message .= "</div>
                          </div>
                          </body>
