@@ -32,24 +32,40 @@ if (isset($_GET["id"])) {
     echo $ex->getMessage();
   }
 }
-
-include '../header.php';
 ?>
-<?php if ($msg <> "") { ?>
-  <div class="alert alert-dismissable alert-<?php echo $msgType; ?>">
-    <button data-dismiss="alert" class="close" type="button">x</button>
-    <p><?php echo $msg; ?></p>
-  </div>
-<?php } ?>
+
+
+<?php if ($msg <> "") {
+    echo "<script type='text/javascript'>alert('$msg')</script>";
+    ?>
+<!--  <div class="alert alert-dismissable alert---><?php //echo $msgType; ?><!--">-->
+<!--    <button data-dismiss="alert" class="close" type="button">x</button>-->
+<!--    <p>-->
+<!--    --><?php //echo $msg; ?>
+    <!--</p>-->
+<!--  </div>-->
+
+
+<?php }
+?>
+<head>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
 <div class="container">
   <div class="row">
-    <div class="col-lg-9">
-      <h1>Thank you for registering with us.</h1>
+    <div class="col-md-12">
+<!--      <h1>Thank you for registering with us.</h1>-->
+        <img src="../pic/activatedAlready.JPG">
+        <button name="submit" class="btn btn-info" href="../index.php" style="width: 50%; border-radius: 25px;">BACK</button>
+<!--        --><?php
+//        echo "<script>setTimeout(\"location.href = '../index.php';\",2000);</script>";
+//        ?>
     </div>
   </div>
 </div>
 
 <script type="text/javascript">
+
   function validateForm() {
 
     var your_name = $.trim($("#uname").val());
