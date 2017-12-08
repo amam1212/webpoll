@@ -36,6 +36,7 @@ if(!isset($_SESSION["User_ID"])){
 
         <script src="js/vendor/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/script.js"></script>
     </head>
 
     <body>
@@ -69,7 +70,6 @@ if(!isset($_SESSION["User_ID"])){
         </div>
 
         <form id="contact-form" method="post" action="check_survay.php" role="form">
-            <input type="hidden" name="mid" value="<?php echo $objResult["mid"];?>">
             <!-- name -->
             <div class="form-group row">
                 <div class="col-md-6">
@@ -138,7 +138,15 @@ if(!isset($_SESSION["User_ID"])){
                 </div>
 
             </div>
-
+            <div class="row" style="justify-content: center; padding: 20px; background-color: bisque;border-radius: 30px;">
+                    <h4>อัพโหลดรูปกิจกรรม</h4>
+                    <div class="col-md-12" style="text-align: center;">
+                        <img id="blah" src="../pic/avatar.png" style="width: 30%" alt="your image" />
+                    </div><br>
+                    <div class="col-md-12" style="text-align: center;">
+                        <input type="file" class="btn btn-info btn-sm" style="width: 50%; margin-top: 20px;" name="activitypic" onchange="readURL(this)">
+                    </div>
+            </div><br>
             <div class="row" style="justify-content:center;">
                 <button name="submit" class="btn btn-warning" style="justify-content:center; width: 30%; border-radius: 25px;">Send</button>
             </div>

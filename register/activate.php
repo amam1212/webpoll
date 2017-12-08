@@ -43,7 +43,6 @@ if (isset($_GET["id"])) {
 }
 ?>
 
-
 <?php if ($msg <> "") {
     echo "<script type='text/javascript'>alert('$msg')</script>";
 ?>

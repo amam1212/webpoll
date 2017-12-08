@@ -99,8 +99,7 @@
             <br>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp; Re-password</span>
-                <input type="password" class="form-control" id="txtRepassword" name="txtRepassword" placeholder="Enter your Password again"
-                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                <input type="password" class="form-control" id="txtRepassword" name="txtRepassword" placeholder="Enter your Password anain"
                        title="This password must be equal to you password" required="required">
             </div>
             <div id="checkPassword" style="justify-content: flex-start">
