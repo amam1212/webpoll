@@ -31,7 +31,7 @@ else
     else
     {
         echo "<script type='text/javascript'>alert('Login Failed! Please Verify you Email Address')</script>";
-        echo "<script>setTimeout(\"location.href = 'index.php';\",3000);</script>";
+        echo "<script>setTimeout(\"location.href = 'index.php';\",2000);</script>";
 
         //header("location:/osmpoll/survay");
         //echo "fail";
