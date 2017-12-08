@@ -20,43 +20,34 @@ if (isset($_POST["txtEmail"])) {
     try {
 
         if ($result["type"] == "Register") {
-//
-
-//            function alphanumeric_rand($num_require = 8)
-//            {
-//                $randomstring = null;
-//                $alphanumeric = array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
-//                if ($num_require > sizeof($alphanumeric)) {
-//                    echo "Error alphanumeric_rand(\$num_require) : \$num_require must less than " . sizeof($alphanumeric) . ", $num_require given";
-//                    return;
-//                }
-//                $rand_key = array_rand($alphanumeric, $num_require);
-//                for ($i = 0; $i < sizeof($rand_key); $i++) $randomstring .= $alphanumeric[$rand_key[$i]];
-//                return $randomstring;
-//            }
-//
-//            $resetpass = md5(alphanumeric_rand(12));
-//            $sql = "UPDATE `users` SET `password`='$resetpass' WHERE `email` = '$Email'
-//";
-//            $objQuery = mysqli_query($objCon, $sql);
-//            echo $sql;
-//
             $strSQL = "SELECT * from users WHERE email = '$Email'";
             $objQuery = mysqli_query($objCon, $strSQL);
             $objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC);
             mysqli_close($objCon);
-
-
             $lastID = $objResult["id"];
 
             $message = '<html><head>
                 <title>Reset Password</title>
+                <link href="/css/bootstrap.min.css" rel="stylesheet">
                 </head>
-                <body>';
-            $message .= '<h1>Hi ' . $name . '!</h1>';
+                <body>
+                <div class="row col-md-12" style="margin-left: 10px; margin-top: 10px">
+                <div class="card" style="justify-content: center;width: 100%;padding: 50px;text-align: center;">';
+
+            $message .= '<img src="../pic/forgetpw.JPG" style="width: 100%;"><br>';
+            $message .= '<h3>Forgot your password?</h3>';
+            $message .= '<hr><h4>' . $name . '</h4><hr>';
             $time = time();
-            $message .= '<p><a href="' . SITE_URL . 'newpassword.php?id=' . base64_encode($lastID).'&time=' .base64_encode($time). '">Reset Password</a>';
-            $message .= "</body></html>";
+            $message .= '<h3>Please click on the link below to change your password</h3>';
+            $message .= '<p><a href="' . SITE_URL . 'newpassword.php?id=' . base64_encode($lastID).'&time=' .base64_encode($time). '">
+            <button type="button" style="background-color:#bdd7ee; color: white;border: none;padding: 15px 32px;
+            font-size: 16px; margin: 4px 2px;  cursor: pointer;">Reset Your Password</button>              
+            </a><br><br>';
+            $message .= '<small>Email send by <span style="color: #bdd7ee"><b>E-cup Developer</b></span></small>';
+            $message .= "</div>
+                         </div>
+                         </body>
+                         </html>";
 
 
             // php mailer code starts
@@ -75,12 +66,12 @@ if (isset($_POST["txtEmail"])) {
             $mail->SetFrom('ecup.spp@gmail.com', 'ecup');
             $mail->AddAddress($Email);
 
-            $mail->Subject = trim("Email Verifcation - www.thesoftwareguy.in");
+            $mail->Subject = trim("Reset Password");
             $mail->MsgHTML($message);
 
             try {
                 $mail->send();
-                $msg = "An email has been sent for verfication.";
+                $msg = "An email has been sent for reset password.";
                 $msgType = "success";
             } catch (Exception $ex) {
                 $msg = $ex->getMessage();

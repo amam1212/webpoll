@@ -75,7 +75,7 @@ if(isset($_SESSION["User_ID"])){
                         </div>
 
                         <div class="spacing">
-                            <a href="#">
+                            <a href="register/forgotpassword.php">
                                 <small> Forgot Password?</small>
                             </a><br/>
                         </div>

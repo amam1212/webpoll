@@ -83,10 +83,10 @@ if (isset($_POST["txtFirstname"])) {
                                 </a><br><br>';
                 $message .= '<small>Email send by <span style="color: #fec02d"><b>E-cup Developer</b></span></small>';
 
-                $message .= "    </div>
-                            </div>
-                            </body>
-                            </html>";
+                $message .= "</div>
+                             </div>
+                             </body>
+                             </html>";
 
                 // php mailer code starts
                 $mail = new PHPMailer(true);

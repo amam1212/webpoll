@@ -74,9 +74,6 @@ if (isset($_GET["id"])) {
                     <input type="hidden" class="form-control" name="txtEmail" placeholder="Enter your email"
                            required="required" value="<?php echo $objResult["email"] ?>">
                     <br>
-                    <?php  echo  $u_time."  ". $cur_time
-
-                    ?>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key"
                                                            aria-hidden="true"></i>&nbsp;New Password</span>

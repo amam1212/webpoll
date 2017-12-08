@@ -49,21 +49,12 @@
 
 <main role="main" class="container" style="background-color: darkslategray;">
     <div class="panel panel-info" style="margin-top: 70px;">
-        <h2>Forgot Password</h2><br>
-        <form class="form-horizontal" method="post" action="resetpassword.php">
-            <br>
-            <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;Email</span>
-                <input type="email" class="form-control" name="txtEmail" placeholder="Enter your email" required="required">
-            </div>
-            <br>
-            <button name="submit" class="btn btn-info" style="width: 50%; border-radius: 25px;">Submit</button>
-        </form>
-
+        <h2>Password Reset</h2><br>
+        <p>We are sending you an email to reset your password </p>
+        <p>Please check you email (junk folder).</p>
+        <p>Please note that this link will expire in 10 minutes.</p>
+        <p>If you would like to be re-send, go back to <a style="color: red" href="forgotpassword.php"><b>reset password</b></a> page.</p>
     </div>
-
-
-
 </main>
 
 <footer class="footer">

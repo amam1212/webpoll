@@ -84,7 +84,7 @@ if (isset($authUrl)){
 	$user_count = $result->fetch_object()->usercount; //will return 0 if user doesn't exist
 
 	//show user picture
-	echo '<img src="'.$user->picture.'" style="float: right;margin-top: 33px;" />';
+	//echo '<img src="'.$user->picture.'" style="float: right;margin-top: 33px;" />';
 
 //    $sql = "SELECT COUNT(*) AS count from member where email = '$user->email'";
     $sql = "SELECT * FROM member WHERE email = '$user->email'";
@@ -115,7 +115,7 @@ if (isset($authUrl)){
     else if(!$result) { //else greeting text "Thanks for registering"
 
 
-             $statement = $mysqli->prepare("INSERT INTO google_users (google_id, google_name, google_email, google_link, google_picture_link) VALUES (?,?,?,?,?)");
+            $statement = $mysqli->prepare("INSERT INTO google_users (google_id, google_name, google_email, google_link, google_picture_link) VALUES (?,?,?,?,?)");
             $statement->bind_param('issss', $user->id, $user->name, $user->email, $user->link, $user->picture);
             $statement->execute();
 
