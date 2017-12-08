@@ -26,23 +26,23 @@
         <a href="../index.php"><i class="fa fa-chevron-left pull-left" aria-hidden="true"></i></a>
         <a class="navbar-brand" href="#">E-CUP</a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<!--        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--            <span class="navbar-toggler-icon"></span>-->
+<!--        </button>-->
 
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav mr-auto">
-            </ul>
+<!--        <div class="collapse navbar-collapse" id="navbarsExampleDefault">-->
+<!--            <ul class="navbar-nav mr-auto">-->
+<!--            </ul>-->
 
-            <div class="my-0 my-lg-0">
+<!--            <div class="my-0 my-lg-0">-->
                 <!--                        <nav class="nav nav-masthead">-->
                 <!--                            <div class="col-md-2">-->
                 <!--                                <a href="/ecupweb/login/login.php" class="btn btn-secondary">Login?</a>-->
                 <!--                            </div>-->
                 <!--                        </nav>-->
 
-            </div>
-        </div>
+<!--            </div>-->
+<!--        </div>-->
     </nav>
 </header>
 
@@ -51,14 +51,12 @@
     <div class="panel panel-info" style="margin-top: 70px;">
         <h2>Please Sign Up</h2><br>
         <form class="form-horizontal" method="post" action="register.php">
-            <div class="row col-md-12" style="justify-content: center">
                 <div class="col-md-12">
                     <img id="blah" src="../pic/avatar.png" style="width: 30%" alt="your image" />
                 </div>
                 <div class="col-md-12">
-                    <input type="file" class="btn btn-info btn-sm" name="pic" onchange="readURL(this)">
+                    <input type="file" class="btn btn-info btn-sm" style="width: 50%;" name="pic" onchange="readURL(this)">
                 </div>
-            </div>
             <br>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Firstname</span>
@@ -101,7 +99,8 @@
             <br>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp; Re-password</span>
-                <input type="password" class="form-control" id="txtRepassword" name="txtRepassword" placeholder="Enter your Password anain"
+                <input type="password" class="form-control" id="txtRepassword" name="txtRepassword" placeholder="Enter your Password again"
+                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                        title="This password must be equal to you password" required="required">
             </div>
             <div id="checkPassword" style="justify-content: flex-start">

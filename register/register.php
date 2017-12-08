@@ -7,7 +7,6 @@ session_start();
 if (isset($_POST["txtFirstname"])) {
     require_once "phpmailer/class.phpmailer.php";
 
-
     $FirstName = trim($_POST['txtFirstname']);
     $LastName = trim($_POST['txtLastname']);
     $Telephone = trim($_POST['txtTel']);
@@ -17,22 +16,25 @@ if (isset($_POST["txtFirstname"])) {
     $Picture = trim($_POST['pic']);
     $Type = "Register";
 
-//    $sql = "SELECT COUNT(*) AS count from member where email = :email_id";
+    if($Password != $RePassword)
+    {
+        echo "<script type='text/javascript'>alert('Password not Match!')</script>";
+        //echo "<script>setTimeout(\"location.href = 'index.php';\",1500);</script>";
+        exit();
+    }
 
     $sql = "SELECT * from member WHERE email = '$Email'";
     $objQuery = mysqli_query($objCon,$sql);
     $result = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 
     try {
-//        $stmt = $DB->prepare($sql);
-//        $stmt->bindValue(":email_id", $Email);
-//        $stmt->execute();
-//        $result = $stmt->fetchAll();
 
         if ($result) {
             $msg = "Email already exist by ". $result["type"] ;
             $msgType = "warning";
-            echo $msg;
+            echo "<script type='text/javascript'>alert('$msg')</script>";
+            echo "<script>setTimeout(\"location.href = 'index.php';\",1500);</script>";
+            //echo $msg;
         } else {
             $sql = "INSERT INTO `users` ( `firstname`, `lastname`, `password`, `email`, `telephone`, `picture`)
             VALUES " . "( :fname, :lname, :pass, :email, :tel, :pic)";
@@ -51,11 +53,8 @@ if (isset($_POST["txtFirstname"])) {
             $objQuery = mysqli_query($objCon,$strSQL);
             mysqli_close($objCon);
 
-
             if ($result > 0) {
-
                 $lastID = $DB->lastInsertId();
-
                 $message = '<html><head>
                 <title>Email Verification</title>
                 </head>
@@ -63,7 +62,6 @@ if (isset($_POST["txtFirstname"])) {
                 $message .= '<h1>Hi ' . $name . '!</h1>';
                 $message .= '<p><a href="'.SITE_URL.'activate.php?id=' . base64_encode($lastID) . '">CLICK TO ACTIVATE YOUR ACCOUNT</a>';
                 $message .= "</body></html>";
-
 
                 // php mailer code starts
                 $mail = new PHPMailer(true);
@@ -101,7 +99,6 @@ if (isset($_POST["txtFirstname"])) {
         echo $ex->getMessage();
     }
 }
-
  ?>
 
 
@@ -156,6 +153,4 @@ if (isset($_POST["txtFirstname"])) {
     var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     return regex.test(email);
   }
-
-
 </script>
