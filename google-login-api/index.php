@@ -7,7 +7,7 @@ require_once ('libraries/Google/autoload.php');
 //You can get it from : https://console.developers.google.com/
 $client_id = '789734654158-fabi89p3h2rh99nhi2dltc08tm95o3c5.apps.googleusercontent.com';
 $client_secret = '3gDaLAuGHuEpejWKKRV9ZMmv';
-$redirect_uri = 'http://www.testpoll.ml/osmpoll/google-login-api/';
+$redirect_uri = 'http://www.e-cup.ml/osmpoll/google-login-api/';
 
 //database
 

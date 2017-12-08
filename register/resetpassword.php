@@ -78,11 +78,14 @@ if (isset($_POST["txtEmail"])) {
                 $msg = $ex->getMessage();
                 $msgType = "warning";
             }
+
+            header('location:forgotpasswordalready.php');
         } else if ($result["type"] != "Register"&&$result!=null) {
             $msg = "Email already exist by " . $result["type"];
             echo $msg;
             var_dump($result);
-        } else if ($result == null) {
+        }
+        else if ($result == null) {
             $msg = "there are no this email in the system";
             echo $msg;
         }

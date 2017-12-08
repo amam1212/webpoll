@@ -13,14 +13,15 @@ $txtgoodpoint = $_POST['txtgoodpoint'];
 $txtbadpoint = $_POST['txtbadpoint'];
 $txtactivity = $_POST['txtactivity'];
 $txtfutureinchiangmai = $_POST['txtfutureinchiangmai'];
+$Picture = $_POST['activitypic'];
 
 mysqli_set_charset($objCon,"utf8");
 
 //insert to survaysectionone
 
-$sql ="INSERT INTO survay (user_id, firstname, lastname,phone,email,community,badpoint,goodpoint,activity,futureinchiangmai) 
+$sql ="INSERT INTO survay (user_id, firstname, lastname,phone,email,community,badpoint,goodpoint,activity,futureinchiangmai,picture) 
 VALUES ('$userid', '$txtfirstname', '$txtlastname','$txtphone',
-    '$txtemail','$txtcommunity','$txtgoodpoint','$txtbadpoint','$txtactivity', '$txtfutureinchiangmai')";
+    '$txtemail','$txtcommunity','$txtgoodpoint','$txtbadpoint','$txtactivity', '$txtfutureinchiangmai','$Picture')";
 $query = mysqli_query($objCon, $sql);
 
 
@@ -30,6 +31,7 @@ if($query){
     echo "<script type='text/javascript'>alert('Submitted Successfully!')</script>";
 }
 else{
+
     echo "<script type='text/javascript'>alert('submitted failed! Please Try Again')</script>";
 
 }

@@ -19,7 +19,7 @@ $helper = $fb->getRedirectLoginHelper();
 
 $permissions = ['email', 'user_likes']; // optional
 
-$loginUrl = $helper->getLoginUrl('http://www.testpoll.ml/osmpoll/facebook-login-api/login-callback.php', $permissions);
+$loginUrl = $helper->getLoginUrl('http://www.e-cup.ml/osmpoll/facebook-login-api/login-callback.php', $permissions);
 
 header('location: '.$loginUrl.'');
 ?>
