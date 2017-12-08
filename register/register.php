@@ -60,11 +60,36 @@ if (isset($_POST["txtFirstname"])) {
                 $lastID = $DB->lastInsertId();
                 $message = '<html><head>
                 <title>Email Verification</title>
+                <link href="/css/bootstrap.min.css" rel="stylesheet">
                 </head>
-                <body>';
-                $message .= '<h1>Hi ' . $name . '!</h1>';
-                $message .= '<p><a href="'.SITE_URL.'activate.php?id=' . base64_encode($lastID) . '">CLICK TO ACTIVATE YOUR ACCOUNT</a>';
-                $message .= "</body></html>";
+                <body>
+                <div class="row col-md-12" style="margin-left: 10px; margin-top: 10px">
+                <div class="card">';
+
+                $message .= '<img src="../pic/navbarconfirmemail.JPG" style="width: 100%;"><br>';
+                $message .= '<h3>Email Confirmation </h3>';
+                $message .= '<h1>Hey ' . $FirstName .' ,</h1>';
+                $message .= '<p>you\'re almost ready to start enjoying E-cup</p>';
+                $message .= '<p>Please click on the link below to verify your email address</p>';
+                $message .= '<p>and complete your registration.</p><br>';
+                $message .= '<p><a href="'.SITE_URL.'activate.php?id=' . base64_encode($lastID) . '">
+                                <button class="btn btn-warning" style="color: white;">CLICK TO ACTIVATE YOUR ACCOUNT</button>
+                                <br><br>
+                                </a>';
+                $message .= '<small>Email send by <span style="color: #fec02d"><b>E-cup Developer</b></span></small>';
+
+                $message .= "    </div>
+                            </div>
+                            </body>
+                            <style>
+                                div.card{
+                                    justify-content: center;
+                                    width: 100%;
+                                    padding: 50px;
+                                    text-align: center;
+                                }
+                            </style>
+                            </html>";
 
                 // php mailer code starts
                 $mail = new PHPMailer(true);
@@ -82,7 +107,7 @@ if (isset($_POST["txtFirstname"])) {
                 $mail->SetFrom('ecup.spp@gmail.com', 'ecup');
                 $mail->AddAddress($Email);
 
-                $mail->Subject = trim("Email Verifcation - www.thesoftwareguy.in");
+                $mail->Subject = trim("Email Verifcation");
                 $mail->MsgHTML($message);
 
                 try {
