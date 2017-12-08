@@ -31,26 +31,13 @@ try {
 if (isset($accessToken)) {
   // Logged in!
   $_SESSION['facebook_access_token'] = (string) $accessToken;
-
-  // Now you can redirect to another page and use the
-  // access token from $_SESSION['facebook_access_token']
-
   $response = $fb->get('/me?fields=id,name,gender,email,link', $accessToken);
 
   $user = $response->getGraphUser();
-//  echo'<pre>';
-//  print_r($user);
-//  echo'</pre>';
-
-  //echo 'ID: ' . $user['id'];
-  //echo 'Name: ' . $user['name'];
-  //echo 'Gener: ' . $user['gener'];
-  //echo 'Email: ' . $user['email'];
-  //echo 'Link: ' . $user['link'];
 
 	mysqli_query($objCon,"SET NAMES UTF8");
 
-    $sql = "SELECT * from member WHERE email = '".$user['email']."'";
+    $sql = "SELECT * FROM member WHERE email = '".$user['email']."'";
     $objQuery = mysqli_query($objCon,$sql);
     $result = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 
@@ -63,8 +50,8 @@ if (isset($accessToken)) {
 	{
         $Email = $user['email'];
 
-        $sql = "SELECT m.id,f.NAME as name, m.email,m.type from member m INNER Join facebook_users f on m.email = f.EMAIL
-WHERE f.EMAIL = '$Email'";
+        $sql = "SELECT m.id,f.NAME AS name, m.email,m.type FROM member m INNER JOIN facebook_users f ON m.email = f.EMAIL
+        WHERE f.EMAIL = '$Email'";
 
         mysqli_set_charset($objCon,"utf8");
         $objQuery = mysqli_query($objCon,$sql);
@@ -76,7 +63,9 @@ WHERE f.EMAIL = '$Email'";
         $_SESSION["Email"] = $objResult["email"];
         $_SESSION["Type"] = $objResult["type"];
 
-       header('location:/osmpoll/survay');
+
+        echo "<script type='text/javascript'>alert('Login Successful! Welcome to E-cup Website')</script>";
+        echo "<script>setTimeout(\"location.href = '/osmpoll/survay';\",2000);</script>";
 		exit();
 	}
 	else if(!$result)
@@ -103,8 +92,8 @@ WHERE f.EMAIL = '$Email'";
 
 
 
-        $sql = "SELECT m.id,f.NAME as name, m.email,m.type from member m INNER Join facebook_users f on m.email = f.EMAIL
-WHERE f.EMAIL = '$Email'";
+        $sql = "SELECT m.id,f.NAME AS name, m.email,m.type FROM member m INNER JOIN facebook_users f ON m.email = f.EMAIL
+        WHERE f.EMAIL = '$Email'";
         mysqli_set_charset($objCon,"utf8");
         $objQuery = mysqli_query($objCon,$sql);
         $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
@@ -117,14 +106,17 @@ WHERE f.EMAIL = '$Email'";
 
 
 
-        header('location:/osmpoll/survay');
-			exit();
+        echo "<script type='text/javascript'>alert('Login Successful! Welcome to E-cup Website')</script>";
+        echo "<script>setTimeout(\"location.href = '/osmpoll/survay';\",2000);</script>";
+		exit();
 	}
     else if($result){
-        echo "This is Email already exist in database by ". $result["type"];
+
+        $msg = "Email already exist by ". $result["type"] ;
+
+        echo "<script type='text/javascript'>alert('$msg')</script>";
+        echo "<script>setTimeout(\"location.href = '/osmpoll/index.php';\",2000);</script>";
     }
-
-
 
 	mysqli_close($objCon);
 

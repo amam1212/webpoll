@@ -6,7 +6,6 @@ session_start();
 
 if (isset($_POST["txtFirstname"])) {
     require_once "phpmailer/class.phpmailer.php";
-
     $FirstName = trim($_POST['txtFirstname']);
     $LastName = trim($_POST['txtLastname']);
     $Telephone = trim($_POST['txtTel']);
@@ -30,10 +29,13 @@ if (isset($_POST["txtFirstname"])) {
     try {
 
         if ($result) {
+
             $msg = "Email already exist by ". $result["type"] ;
             $msgType = "warning";
+
             echo "<script type='text/javascript'>alert('$msg')</script>";
             echo "<script>setTimeout(\"location.href = 'index.php';\",2000);</script>";
+
             //echo $msg;
         } else {
             $sql = "INSERT INTO users ( firstname, lastname, password, email, telephone, picture)

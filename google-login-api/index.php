@@ -80,36 +80,35 @@ if (isset($authUrl)){
     }
 
 	//check if user exist in database using COUNT
-	$result = $mysqli->query("SELECT COUNT(google_id) as usercount FROM google_users WHERE google_id=$user->id");
+	$result = $mysqli->query("SELECT COUNT(google_id) AS usercount FROM google_users WHERE google_id=$user->id");
 	$user_count = $result->fetch_object()->usercount; //will return 0 if user doesn't exist
 
 	//show user picture
 	echo '<img src="'.$user->picture.'" style="float: right;margin-top: 33px;" />';
 
 //    $sql = "SELECT COUNT(*) AS count from member where email = '$user->email'";
-    $sql = "SELECT * from member WHERE email = '$user->email'";
+    $sql = "SELECT * FROM member WHERE email = '$user->email'";
     $objQuery = mysqli_query($objCon,$sql);
     $result = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 
 
 	if($user_count) //if user already exist change greeting text to "Welcome Back"
     {
-        $sql = "SELECT m.id,g.google_name as name, m.email,m.type from member m INNER Join google_users g on m.email = g.google_email
-WHERE g.google_email = '$user->email'";
+        $sql = "SELECT m.id,g.google_name AS name, m.email,m.type FROM member m INNER JOIN google_users g ON m.email = g.google_email
+                WHERE g.google_email = '$user->email'";
         mysqli_set_charset($objCon,"utf8");
         $objQuery = mysqli_query($objCon,$sql);
         $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 
 
-       $_SESSION["User_ID"] = $objResult["id"];
+        $_SESSION["User_ID"] = $objResult["id"];
         $_SESSION["Name"] = $objResult["name"];
         $_SESSION["Email"] = $objResult["email"];
         $_SESSION["Type"] = $objResult["type"];
 
 
-
-
-       header('location:/osmpoll/survay');
+        echo "<script type='text/javascript'>alert('Login Successful! Welcome to E-cup Website')</script>";
+        echo "<script>setTimeout(\"location.href = '/osmpoll/survay';\",2000);</script>";
 
     }
 
@@ -128,8 +127,8 @@ WHERE g.google_email = '$user->email'";
 
             echo $mysqli->error;
 
-        $sql = "SELECT m.id,g.google_name as name, m.email,m.type from member m INNER Join google_users g on m.email = g.google_email
-WHERE g.google_email = '$user->email'";
+        $sql = "SELECT m.id,g.google_name AS name, m.email,m.type FROM member m INNER JOIN google_users g ON m.email = g.google_email
+                WHERE g.google_email = '$user->email'";
         mysqli_set_charset($objCon,"utf8");
         $objQuery = mysqli_query($objCon,$sql);
         $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
@@ -142,17 +141,19 @@ WHERE g.google_email = '$user->email'";
 
 
         mysqli_close($objCon);
-        header('location:/osmpoll/survay');
+
+        echo "<script type='text/javascript'>alert('Login Successful! Welcome to E-cup Website')</script>";
+        echo "<script>setTimeout(\"location.href = '/osmpoll/survay';\",2000);</script>";
 
         }
 
     else if($result){
-	    echo "This is Email already exist in database by ". $result["type"];
+        $msg = "Email already exist by ". $result["type"] ;
+
+        echo "<script type='text/javascript'>alert('$msg')</script>";
+        echo "<script>setTimeout(\"location.href = '/osmpoll/index.php';\",2000);</script>";
+
         }
-
-
-
-
 }
 echo '</div>';
 
