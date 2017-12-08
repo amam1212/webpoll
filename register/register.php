@@ -19,11 +19,11 @@ if (isset($_POST["txtFirstname"])) {
     if($Password != $RePassword)
     {
         echo "<script type='text/javascript'>alert('Password not Match!')</script>";
-        //echo "<script>setTimeout(\"location.href = 'index.php';\",1500);</script>";
+        echo "<script>setTimeout(\"location.href = 'index.php';\",1500);</script>";
         exit();
     }
 
-    $sql = "SELECT * from member WHERE email = '$Email'";
+    $sql = "SELECT * FROM member WHERE email = '$Email'";
     $objQuery = mysqli_query($objCon,$sql);
     $result = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 
@@ -33,10 +33,10 @@ if (isset($_POST["txtFirstname"])) {
             $msg = "Email already exist by ". $result["type"] ;
             $msgType = "warning";
             echo "<script type='text/javascript'>alert('$msg')</script>";
-            echo "<script>setTimeout(\"location.href = 'index.php';\",1500);</script>";
+            echo "<script>setTimeout(\"location.href = 'index.php';\",2000);</script>";
             //echo $msg;
         } else {
-            $sql = "INSERT INTO `users` ( `firstname`, `lastname`, `password`, `email`, `telephone`, `picture`)
+            $sql = "INSERT INTO users ( firstname, lastname, password, email, telephone, picture)
             VALUES " . "( :fname, :lname, :pass, :email, :tel, :pic)";
             $stmt = $DB->prepare($sql);
             $stmt->bindValue(":fname", $FirstName);
@@ -48,9 +48,12 @@ if (isset($_POST["txtFirstname"])) {
             $stmt->execute();
             $result = $stmt->rowCount();
 
-            $strSQL = "INSERT INTO `member` ( `email`, `type`) VALUES ('$Email','$Type')";
-//            echo  "$strSQL";
+            $strSQL = "INSERT INTO member (email, `type`) VALUES ('$Email','$Type')";
             $objQuery = mysqli_query($objCon,$strSQL);
+
+            echo "<script type='text/javascript'>alert('You Register Successful!')</script>";
+            echo "<script>setTimeout(\"location.href = '../index.php';\",2000);</script>";
+
             mysqli_close($objCon);
 
             if ($result > 0) {

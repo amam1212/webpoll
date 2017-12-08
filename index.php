@@ -64,7 +64,8 @@
                             <span class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i>&nbsp; Password</span>
                             <input type="password" class="form-control" id="txtPassword" name="txtPassword" placeholder="Enter your Password"
                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                   title="Must contain at least one number and one uppercase and lowercase letter,and at least 8 or more characters" required>
+                                   title="Must contain at least one number and one uppercase and lowercase letter,and at least 8 or more characters"
+                                   required>
                         </div>
 
                         <div class="spacing">
@@ -84,18 +85,17 @@
         <br>
         <div class="panel-body">
             <div class="row">
-            <div class="col-md-5">
-                <hr>
-            </div>
-            <div class="col-md-2">
-                OR
-            </div>
-            <div class="col-md-5">
-                <hr>
-            </div>
+                <div class="col-md-5">
+                    <hr>
+                </div>
+                <div class="col-md-2">
+                    OR
+                </div>
+                <div class="col-md-5">
+                    <hr>
+                </div>
             </div>
             <div class="row panel-info">
-
                 <div class="col-md-4">
                     <a href="/osmpoll/facebook-login-api" class="btn"><img src="pic/loginwithfacebook.png" style="width: 100%;"></a>
                 </div>

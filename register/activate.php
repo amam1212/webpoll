@@ -4,7 +4,7 @@ require_once './config.php';
 if (isset($_GET["id"])) {
   $id = intval(base64_decode($_GET["id"]));
  
-  $sql = "SELECT * from users where id = :id";
+  $sql = "SELECT * FROM users WHERE id = :id";
   try {
     $stmt = $DB->prepare($sql);
     $stmt->bindValue(":id", $id);
