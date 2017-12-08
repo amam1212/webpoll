@@ -8,7 +8,8 @@ $objQuery = mysqli_query($objCon,$strSQL);
 $objResult = mysqli_fetch_array($objQuery);
 if(!$objResult)
 {
-    echo "Username and Password Incorrect!";
+    echo "<script type='text/javascript'>alert('Username and Password Incorrect!')</script>";
+    echo "<script>setTimeout(\"location.href = 'index.php';\",2000);</script>";
 }
 else
 {
