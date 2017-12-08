@@ -21,13 +21,19 @@ else
 
     if($objResult["status"] == "approved")
     {
-//        header("location:admin_page.php");
-        echo "Pass";
+        //header("location:admin_page.php");
+        //echo "Pass";
+
+        echo "<script type='text/javascript'>alert('Login Successful! Welcome to E-cup Website')</script>";
+        echo "<script>setTimeout(\"location.href = '../survay';\",2000);</script>";
     }
     else
     {
-        header("location:/osmpoll/survay");
-//        echo "fail";
+        echo "<script type='text/javascript'>alert('Login Failed! Please Verify you Email Address')</script>";
+        echo "<script>setTimeout(\"location.href = 'index.php';\",3000);</script>";
+
+        //header("location:/osmpoll/survay");
+        //echo "fail";
     }
 }
 mysqli_close($objCon);

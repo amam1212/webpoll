@@ -64,7 +64,7 @@ if (isset($_POST["txtFirstname"])) {
                 </head>
                 <body>
                 <div class="row col-md-12" style="margin-left: 10px; margin-top: 10px">
-                <div class="card">';
+                <div class="card" style="justify-content: center;width: 100%;padding: 50px;text-align: center;">';
 
                 $message .= '<img src="../pic/navbarconfirmemail.JPG" style="width: 100%;"><br>';
                 $message .= '<h3>Email Confirmation </h3>';
@@ -73,22 +73,15 @@ if (isset($_POST["txtFirstname"])) {
                 $message .= '<p>Please click on the link below to verify your email address</p>';
                 $message .= '<p>and complete your registration.</p><br>';
                 $message .= '<p><a href="'.SITE_URL.'activate.php?id=' . base64_encode($lastID) . '">
-                                <button class="btn btn-warning" style="color: white;">CLICK TO ACTIVATE YOUR ACCOUNT</button>
-                                <br><br>
-                                </a>';
+                                <button type="button" 
+                                style="background-color:#fec02d; color: white;border: none;padding: 15px 32px;
+                                font-size: 16px; margin: 4px 2px;  cursor: pointer;"> CLICK TO ACTIVATE YOUR ACCOUNT</button>
+                                </a><br><br>';
                 $message .= '<small>Email send by <span style="color: #fec02d"><b>E-cup Developer</b></span></small>';
 
                 $message .= "    </div>
                             </div>
                             </body>
-                            <style>
-                                div.card{
-                                    justify-content: center;
-                                    width: 100%;
-                                    padding: 50px;
-                                    text-align: center;
-                                }
-                            </style>
                             </html>";
 
                 // php mailer code starts
